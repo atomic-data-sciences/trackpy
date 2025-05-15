@@ -176,16 +176,6 @@ def link(f, search_range, pos_columns=None, t_column='frame', **kwargs):
     .. [1] Crocker, J.C., Grier, D.G. http://dx.doi.org/10.1006/jcis.1996.0217
 
     """
-    if pos_columns is None:
-        pos_columns = guess_pos_columns(f)
-
-    # copy the dataframe
-    f = f.copy()
-    # coerce t_column to integer type (use np.int64 to avoid 32-bit on windows)
-    if not np.issubdtype(f[t_column].dtype, np.integer):
-        f[t_column] = f[t_column].astype(np.int64)
-    # sort on the t_column
-    pandas_sort(f, t_column, inplace=True)
 
     coords_iter = coords_from_df(f, pos_columns, t_column)
     ids = []
@@ -194,8 +184,6 @@ def link(f, search_range, pos_columns=None, t_column='frame', **kwargs):
 
     f['particle'] = ids
     return f
-
-link_df = link
 
 
 def link_df_iter(f_iter, search_range, pos_columns=None,
