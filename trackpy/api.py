@@ -9,7 +9,7 @@ from .static import proximity, pair_correlation_2d, pair_correlation_3d, \
 from .plots import annotate, annotate3d, plot_traj, ptraj, \
            plot_displacements, subpx_bias, mass_size, mass_ecc, \
            scatter, scatter3d, plot_traj3d, ptraj3d, plot_density_profile
-from .linking import (link, link_df, link_iter, link_df_iter,
+from .linking import (link, link_iter, link_df_iter,
                       find_link, find_link_iter, link_partial,
                       reconnect_traj_patch,
                       SubnetOversizeException, UnknownLinkingError)
